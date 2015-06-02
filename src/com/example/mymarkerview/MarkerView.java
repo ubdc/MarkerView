@@ -32,17 +32,17 @@ public class MarkerView extends TextView {
 	private float borderWidth = 2f;
 	
 	private static final int[] ATTRS = {
-		android.R.attr.background,
+		android.R.attr.colorForeground,
+		android.R.attr.colorBackground,
 		android.R.attr.radius,
-		android.R.attr.strokeColor,
 	};
 
 	public MarkerView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		TypedArray a = context.obtainStyledAttributes(attrs, ATTRS);
-		int backgroundColor = a.getColor(0, 0);
-		radius = a.getDimension(1, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15, context.getResources().getDisplayMetrics()));
-		int strokeColor = a.getColor(2, 0);
+		int backgroundColor = a.getColor(1, 0);
+		radius = a.getDimension(2, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15, context.getResources().getDisplayMetrics()));
+		int strokeColor = a.getColor(0, 0);
 		shadowRadius = radius / 2;
 		a.recycle();
 		bgPaint.setAntiAlias(true);
